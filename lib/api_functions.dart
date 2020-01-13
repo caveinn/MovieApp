@@ -4,7 +4,6 @@ import 'package:movie_info/models.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<TvShow>> getTopTvShows() async {
-    print('calling');
     List<TvShow> popularTvshows = [];
     http.Response response = await http.get(
         'https://api.themoviedb.org/3/tv/popular?api_key='+ DotEnv().env['Auth3token']+'&language=en-US&page=1');
