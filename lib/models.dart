@@ -1,5 +1,5 @@
 class TvShow {
-  String title;
+  String name;
   int id;
   String backdropPath;
   String overview;
@@ -7,7 +7,7 @@ class TvShow {
   String voteAvarage;
 
   TvShow(
-      {this.title,
+      {this.name,
       this.backdropPath,
       this.overview,
       this.posterPath,

@@ -11,34 +11,34 @@ Future<List<TvShow>> getTopTvShows() async {
           '&language=en-US&page=1');
   var jsonData = jsonDecode(response.body);
   for (var Tv in jsonData["results"]) {
-    TvShow show = TvShow(
+    TvShow tvshow = TvShow(
         name: Tv["name"],
         backdropPath: Tv["backdrop_path"],
         overview: Tv['overview'],
-        posterpath: Tv['poster_path'],
+        posterPath: Tv['poster_path'],
         voteAvarage: Tv['vote_avarage'],
         id: Tv['id']);
-    popularTvshows.add(show);
+    popularTvshows.add(tvshow);
   }
   return popularTvshows;
 }
 
-Future<List<TvShow>> getTopMovies() async {
-  List<TvShow> popularTvshows = [];
+Future<List<Movie>> getTopMovies() async {
+  List<Movie> popularMovies = [];
   http.Response response = await http.get(
-      'https://api.themoviedb.org/3/movie/top_rated?api_key=' +
+      'https://api.themoviedb.org/3/movie/popular?api_key=' +
           DotEnv().env['Auth3token'] +
           '&language=en-US&page=1');
   var jsonData = jsonDecode(response.body);
   for (var Tv in jsonData["results"]) {
-    TvShow show = TvShow(
-        name: Tv["name"],
+    Movie show = Movie(
+        title: Tv["title"],
         backdropPath: Tv["backdrop_path"],
         overview: Tv['overview'],
-        posterpath: Tv['poster_path'],
+        posterPath: Tv['poster_path'],
         voteAvarage: Tv['vote_avarage'],
         id: Tv['id']);
-    popularTvshows.add(show);
+    popularMovies.add(show);
   }
-  return popularTvshows;
+  return popularMovies;
 }
