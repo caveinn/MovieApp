@@ -36,10 +36,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(child: Column(children: <Widget>[
-         TopTvShows(),
-         TopMovies(),
-      ],) ,)
+      body: Padding(
+        padding: const EdgeInsets.only(top:100),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Text('Top Tv Shows', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+            ),
+           Padding(
+             padding: const EdgeInsets.only(left:20.0),
+             child: TopTvShows(),
+           ),
+           TopMovies(),
+        ],) ,),
+      )
 
 
 
